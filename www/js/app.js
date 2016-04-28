@@ -36,4 +36,11 @@ angular.module('starter', ['ionic'])
       todo: ''
     };
   };
+  $scope.deleteTodo = function ($index) {
+    //var index = $scope.todos.indexOf(item);
+    $scope.todos.splice($index, 1);
+    $scope.todoModel = {
+      todo: ''
+    };
+  };
 })

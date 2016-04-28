@@ -41,6 +41,9 @@
         <ul class="list">
           <li class="item" ng-repeat="todo in todos track by $index">
             {{todo}}
+            <button class="button button-small" ng-click="deleteTodo($index)">
+              Remove
+            </button>
           </li>
         </ul>
       </ion-content>
