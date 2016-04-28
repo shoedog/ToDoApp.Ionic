@@ -22,3 +22,18 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+
+.controller('ToDoController', function ($scope) {
+  $scope.todos = [];      //todos array
+  $scope.todoModel = {};  //empty object to hold entered todo item
+  $scope.todoModel.todo = ''; //todos array in object
+  
+  //adds current value in model to array and set value of model to empty 
+  //string for next todo entry
+  $scope.addTodo = function () {
+    $scope.todos.push($scope.todoModel.todo);
+    $scope.todoModel = {
+      todo: ''
+    };
+  };
+})

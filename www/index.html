@@ -27,7 +27,22 @@
       <ion-header-bar class="bar-stable">
         <h1 class="title">Ionic Blank Starter</h1>
       </ion-header-bar>
-      <ion-content>
+      <ion-content ng-controller="ToDoController">
+        <div class="list">
+          <div class="item item-input-inset">
+            <label class="item-input-wrapper">
+              <input type="text" placeholder="Enter ToDo" ng-model="todoModel.todo">
+            </label>
+            <button class="button button-small" ng-click="addTodo()">
+              Add
+            </button>
+          </div>
+        </div>
+        <ul class="list">
+          <li class="item" ng-repeat="todo in todos track by $index">
+            {{}}
+          </li>
+        </ul>
       </ion-content>
     </ion-pane>
   </body>
