@@ -31,22 +31,24 @@
         <div class="list">
           <div class="item item-input-inset">
             <label class="item-input-wrapper">
-              <input type="text" placeholder="Enter ToDo" ng-model="todoModel.todo">
+              <input type="text" placeholder="Enter ToDo" ng-model="todoListItem.todo">
             </label>
-            <button class="button button-small" ng-click="addTodo()">
+            <button class="button button-small" ng-click="addTodoItem()">
               Add
             </button>
           </div>
         </div>
-        <ul class="list">
-          <li class="item" ng-repeat="todo in todos track by $index">
-            {{todo}}
-            <button class="button button-small" ng-click="deleteTodo($index)">
-              Remove
-            </button>
-          </li>
-        </ul>
+        <ion-list>
+          <ion-item ng-repeat="item in todos">
+              <h2>{{item.todo}}</h2>
+            <ion-option-button class="button-assertive" ng-click="deleteTodo($index)">
+              Delete
+            </ion-option-button>
+          </ion-item>
+        </ion-list>
       </ion-content>
     </ion-pane>
   </body>
 </html>
+
+

@@ -24,23 +24,21 @@ angular.module('starter', ['ionic'])
 })
 
 .controller('ToDoController', function ($scope) {
-  $scope.todos = [];      //todos array
-  $scope.todoModel = {};  //empty object to hold entered todo item
-  $scope.todoModel.todo = ''; //todos array in object
-  
+      
+  $scope.todoListItem = {
+    todo : '' //todos array in object
+  };
+
+  $scope.todos = []; 
   //adds current value in model to array and set value of model to empty 
   //string for next todo entry
-  $scope.addTodo = function () {
-    $scope.todos.push($scope.todoModel.todo);
-    $scope.todoModel = {
+  $scope.addTodoItem = function () {
+    $scope.todos.unshift($scope.todoListItem);
+    $scope.todoListItem = {
       todo: ''
     };
   };
-  $scope.deleteTodo = function ($index) {
-    //var index = $scope.todos.indexOf(item);
-    $scope.todos.splice($index, 1);
-    $scope.todoModel = {
-      todo: ''
-    };
+  $scope.deleteTodo = function (index) {
+    $scope.todos.splice(index, 1);
   };
 })
